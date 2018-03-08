@@ -1,0 +1,52 @@
+<a href='/users/'>Link to All Users</a><br>
+
+<h4>Profile Picture:</h4>
+<p> <img src="{{user.imgUrl}}"> </p>
+
+<h4>Name:</h4>
+<p>{{user.displayName}}</p>
+
+<h4>Email:</h4>
+<p>{{user.email}}</p>
+
+<h4>Biography:</h4>
+<p>{{user.bio}}</p>
+
+<h4>
+<a href='/tweets/new'>Tweet</a>
+</h4>
+
+<h4>Tweets:</h4>
+{{#each tweets}}
+<p>{{this.author.displayName}} tweeted</p>
+<p>{{this.content}}</p><br>
+{{/each}}
+
+
+<h4>Following:</h4>
+{{#each followings}}
+  <div>{{this.following.displayName}}
+  <form  action="/unfollow/{{this.following._id}}" method="post">
+    <input style="display: inline;" type="submit" name="status" value="Unfollow">
+  </form>
+</div>
+{{/each}}
+
+
+<h4>Followers:</h4>
+{{#each followers}}
+  <p>{{this.follower.displayName}}</p>
+{{/each}}
+
+<h4>
+  {{#unless followed}}
+  <form action="/follow/{{user._id}}" method="post">
+    <input style="display: inline;" type="submit" name="status" value="Follow">
+  </form>
+  {{else}}
+  <form action="/unfollow/{{user._id}}" method="post">
+    <input style="display: inline;" type="submit" name="status" value="Unfollow">
+  </form>
+  {{/unless}}
+</h4>
+

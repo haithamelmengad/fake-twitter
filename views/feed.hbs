@@ -1,0 +1,7 @@
+<a href="/users/{{currentUser._id}}">Link to Profile</a>
+<h4>Tweet Feed:</h4>
+
+{{#each tweetData}}
+<p>{{this.author.displayName}} tweeted</p>
+<p>{{this.content}}</p><br>
+{{/each}}

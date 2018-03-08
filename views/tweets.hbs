@@ -1,0 +1,10 @@
+<a href="/users/{{currentUser._id}}">Link to Profile</a>
+<br>
+<h4> All that is happening in the universe   </h4>
+<br>
+<br>
+{{#each tweetArray}}
+<p>{{this.author.displayName}} tweeted: </p>
+<textarea readonly="readonly" name="tweet" id="tweet-text" cols="70" rows="2">{{this.content}}  </textarea> 
+<br>
+{{/each}}

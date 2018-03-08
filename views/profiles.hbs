@@ -1,0 +1,8 @@
+{{! YOUR CODE HERE }}
+<a href="/users/{{currentUser._id}}">Link to Profile</a>
+<br>
+<h4>Users:</h4>
+<br>
+{{#each userArray}}
+<a href="/users/{{this._id}}">{{this.displayName}}</a><br>
+{{/each}}
